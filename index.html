@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Dla Ciebie ❤️</title>
+
+<style>
+body{
+    background:#ffd6e7;
+    font-family:Arial;
+    text-align:center;
+}
+
+h1{
+    color:#e91e63;
+    margin-top:50px;
+}
+
+img{
+    width:300px;
+    border-radius:20px;
+    margin-top:20px;
+}
+
+button{
+    background:#e91e63;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    border-radius:20px;
+    font-size:18px;
+    cursor:pointer;
+}.list{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.6);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.kartka{
+background:white;
+width:420px;
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 0 30px hotpink;
+animation:wysun .5s;
+}
+
+@keyframes wysun{
+from{
+transform:scale(.5);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+</style>
+
+</head>
+<script>
+function serduszko() {
+    const h = document.createElement("div");
+    h.innerHTML = "❤️";
+    h.style.position = "fixed";
+    h.style.left = Math.random() * window.innerWidth + "px";
+    h.style.top = "-30px";
+    h.style.fontSize = (20 + Math.random() * 20) + "px";
+    h.style.pointerEvents = "none";
+    h.style.zIndex = "9999";
+
+    document.body.appendChild(h);
+
+    let y = -30;
+
+    const spadanie = setInterval(() => {
+        y += 5;
+        h.style.top = y + "px";
+
+        if (y > window.innerHeight) {
+            clearInterval(spadanie);
+            h.remove();
+        }
+    }, 20);
+}
+
+setInterval(serduszko, 300);
+</script>
+<body>
+
+<h1>Kocham Cię Bubuś ❤️</h1>
+
+<p>Dziękuję, że jesteś.</p>
+<h2 id="licznik"></h2>
+
+<img src="zdjecie.jpeg">
+
+<br><br>
+
+<button onclick="otworzList()">
+💌 Otwórz list
+</button>
+</button>
+<div id="list" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center;">
+
+<div style="background:white; padding:30px; border-radius:20px; width:70%; max-width:600px;">
+
+<h2>💗 Dla Ciebie 💗</h2>
+
+<p>
+Kochanie ❤️<br><br>
+
+Chciałam Ci powiedzieć, jak bardzo Cię kocham. Dziękuję, że jesteś ze mną każdego dnia. Jesteś moim uśmiechem, wsparciem i największym szczęściem. Uwielbiam patrzeć, jak się uśmiechasz, bo wtedy sama jestem szczęśliwa.
+
+Bardzo Cię kocham i chcę być z Tobą bez względu na wszystko. Nieważne, co się stanie – będę przy Tobie. Gdy zachorujesz, będę się Tobą opiekować. Gdy będzie Ci ciężko, pomogę Ci i będę Cię wspierać.
+
+Marzę o naszej wspólnej przyszłości. Chcę razem z Tobą podróżować, urządzić nasz wymarzony dom, kupować pamiątki z każdego miejsca, gotować razem obiady, śmiać się i budować piękną rodzinę.
+
+Kocham Cię najmocniej na świecie i zawsze będę o Ciebie dbać. ❤️
+
+<br><br>
+Na zawsze Twoja ❤️
+</p>
+
+<button onclick="zamknijList()">💖 Zamknij 💖</button>
+
+</div>
+</div>
+
+    
+         
+
+<script>
+function otworzList(){
+document.getElementById("list").style.display="flex";
+}
+
+function zamknijList(){
+document.getElementById("list").style.display="none";
+}
+</script>
+<script>
+function pokazGalerie(){
+    document.getElementById("galeria").style.display = "block";
+}
+</script>
+<button onclick="pokazGalerie()">
+📸 Nasze wspomnienia
+</button
+
+<div id="galeria" style="display:none; margin-top:30px;">
+
+    <figure>
+        <img src="zdjecie2.jpeg" width="300">
+        <figcaption>❤️ Nasza pierwsza wspólna chwila ❤️</figcaption>
+    </figure>
+
+    <figure>
+        <img src="zdjecie3.jpeg" width="300">
+        <figcaption>🌅 Piękny dzień razem 🌅</figcaption>
+    </figure>
+
+    <figure>
+        <img src="zdjecie5.jpeg" width="300">
+        <figcaption>🥰 Mój ulubiony uśmiech 🥰</figcaption>
+    </figure>
+
+</div>
+
+<script>
+function pokazGalerie() {
+    document.getElementById("galeria").style.display = "block";
+}
+</script>
+<h2 id="licznik" style="color:#e91e63;"></h2>
+
+<script>
+const dataRazem = new Date("2024-04-02T00:00:00");
+
+function aktualizujLicznik() {
+    const teraz = new Date();
+    const roznica = teraz - dataRazem;
+
+    const dni = Math.floor(roznica / (1000 * 60 * 60 * 24));
+    const godziny = Math.floor((roznica / (1000 * 60 * 60)) % 24);
+    const minuty = Math.floor((roznica / (1000 * 60)) % 60);
+    const sekundy = Math.floor((roznica / 1000) % 60);
+
+    document.getElementById("licznik").innerHTML =
+        `❤️ Jesteśmy razem już <br><br>
+        ${dni} dni ${godziny} godzin ${minuty} minut ${sekundy} sekund ❤️`;
+}
+
+setInterval(aktualizujLicznik, 1000);
+aktualizujLicznik();
+</script>
+<br><br>
+
+<button onclick="otworzPrezent()">
+🎁 Otwórz tajemniczy prezent
+</button>
+
+<div id="prezent" style="display:none; margin-top:20px;">
+
+    <h2>🎁 Niespodzianka! 🎁</h2>
+
+    <p style="font-size:22px; color:#e91e63;">
+        Największym prezentem w moim życiu jesteś Ty. ❤️
+        <br><br>
+        Kocham Cię najmocniej na świecie! 🥰
+    </p>
+
+</div>
+
+<script>
+function otworzPrezent() {
+    document.getElementById("prezent").style.display = "block";
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+</div>
